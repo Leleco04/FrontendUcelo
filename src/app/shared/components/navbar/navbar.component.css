@@ -1,0 +1,17 @@
+.titulo-nav {
+    font-size: 1.5rem; 
+    color: transparent; 
+    background-clip: text; 
+    background-image: linear-gradient(
+        135deg, 
+    #3645AB 0%,
+    #2B3480 50%,
+    #1E2469 100% 
+    );
+}
+
+#btn-gerar-relatorio {
+    background-color: #4D7BFF;
+    border-radius: 10px; 
+    cursor: pointer;
+}
