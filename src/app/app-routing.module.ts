@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
 
 // 2. Cole o array de rotas aqui
 const routes: Routes = [
     {
-        
+        path: '', component: HomeComponent
     },
     // ...outras rotas que você tenha definido
 ];
