@@ -1,0 +1,10 @@
+.btn-escolha {
+    border: 1px solid lightgray;
+    font-size: 1.25rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #0A1744;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}

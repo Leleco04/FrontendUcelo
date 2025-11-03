@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { CalculoCapacidadeComponent } from './pages/calculo-capacidade/calculo-capacidade.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
 
-// 2. Cole o array de rotas aqui
 const routes: Routes = [
-    {
-        path: '', component: HomeComponent
-    },
-    // ...outras rotas que você tenha definido
+    {path: '', component: HomeComponent,},
+    {path: 'calculadora-capacidade', component: CalculoCapacidadeComponent},
+    {path: 'sobre', component: SobreComponent}
 ];
 
 @NgModule({
-  // 3. Configure o RouterModule usando o array de rotas
-  imports: [RouterModule.forRoot(routes)],
-  // 4. Exporte o RouterModule para que o AppModule possa usá-lo
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppRoutingModule { }

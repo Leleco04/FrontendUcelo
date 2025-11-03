@@ -1,0 +1,17 @@
+<h2 mat-dialog-title class="text-center">Escolha o tipo de operação.</h2>
+
+<mat-dialog-content class="text-center">
+    <p>Selecione uma das opções abaixo para iniciar:</p>
+    <mat-nav-list>
+        <div class="grid gap-3">
+            <button class="btn-escolha" (click)="escolher('elevador-carga')">Cálculo de Elevador de Carga</button>
+            <button class="btn-escolha" (click)="escolher('monta-carga')">Cálculo de Monta-Carga</button>
+            <button class="btn-escolha" (click)="escolher('plataforma')">Cálculo de Plataforma</button>
+            <button class="btn-escolha" (click)="escolher('capacidade')">Cálculo de Capacidade</button>
+        </div>
+    </mat-nav-list>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button (click)="fechar()">Cancelar</button>
+</mat-dialog-actions>

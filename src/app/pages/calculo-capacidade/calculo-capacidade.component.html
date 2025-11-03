@@ -1,0 +1,66 @@
+<form [formGroup]="calculoForm" (ngSubmit)="onSubmit()">
+    <div class="flex justify-center">
+        <div class="calculo-container gap-5 p-5 justify-center">
+            <div class="container-input gap-3">
+                <div class="grid">
+                    <label for="">Velocidade (m/s)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+                <div class="grid">
+                    <label for="">Passo (mm)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+            </div>
+            <div class="container-input gap-3">
+                <div class="grid">
+                    <label for="">N° de fileiras de correia</label>
+                    <input class="input-calculo" type="text">
+                </div>
+                <div class="grid">
+                    <label for="">Profundidade (mm)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+            </div>
+            <div class="container-input gap-3">
+                <div class="grid">
+                    <label for="">Densidade do produto (kg/m³)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+                <div class="grid">
+                    <label for="">Volume da caneca (l)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+            </div>
+            <div class="container-input gap-3">
+                <div class="grid">
+                    <label for="">Fator de enchimento (%)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+                <div class="grid">
+                    <label for="">Largura (mm)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+            </div>
+            <div class="container-input gap-3">
+                <div class="grid">
+                    <label for="">Projeção (mm)</label>
+                    <input class="input-calculo" type="text">
+                </div>
+                <div class="grid">
+                    <button class="btn-calcular" type="submit" [disabled]="calculoForm.invalid">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="flex justify-center p-5">
+    <div *ngIf="resultado" class="resultado-sucesso">
+        <h3>Capacidade Calculada:</h3>
+        <p>{{ resultado.capacidadeCalculada | number:'1.2-2' }} {{ resultado.unidade }}</p>
+    </div>
+
+    <div *ngIf="erro" class="resultado-erro">
+        <p>{{ erro }}</p>
+    </div>
+</div>

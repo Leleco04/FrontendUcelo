@@ -1,0 +1,54 @@
+img {
+    width: 50%;
+    height: calc(100vh - 80px);
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.div-texto {
+    padding: 8rem;
+}
+
+.slide {
+    display: flex;
+}
+
+@media (max-width: 1024px) {
+    img {
+        width: 100%;
+        height: calc(100vh - 80px);
+        filter: blur(3px);
+    }
+
+    .slide-texto {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .div-texto {
+        padding: 1rem;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .titulo-5 {
+        font-size: 2.5rem;
+    }
+}
