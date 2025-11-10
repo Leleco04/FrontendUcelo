@@ -20,12 +20,27 @@
 .btn-calcular {
     width: 15rem;
     border-radius: .25rem;
-    background-color: greenyellow;
+    background-color: #0A1743;
     text-align: center;
     padding: .5rem;
     font-weight: bold;
-    color: #000;
+    color: #fff;
     cursor: pointer;
+}
+
+.btn-exp-pdf {
+  background-color: red;
+  border-radius: .25rem;
+  color: #fff;
+  padding: 1rem;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pdf-svg {
+  width: 2.5rem;
 }
 
 .btn-calcular:active {
@@ -34,6 +49,12 @@
 
 .container-input {
     display: flex;
+}
+
+.container-resultado {
+    background-color: #fff;
+    border-radius: .25rem;
+    padding: 1rem;
 }
 
 @media (max-width: 1024px) {

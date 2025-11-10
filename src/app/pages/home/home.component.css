@@ -5,6 +5,7 @@
     backdrop-filter: blur(12px);
     background-color: rgba(155, 177, 240, 0.25);
     width: 25%;
+    height: 22rem;
 }
 
 #titulo-home {
@@ -26,7 +27,9 @@
 
 #btn-iniciar-calculo {
     border: 1px solid lightgray;
+    color: #fff;
     border-radius: 10px;
+    transition: all 0.1s ease;
 }
 
 #container-cards-home {
@@ -46,9 +49,20 @@
     font-size: 2rem;
 }
 
+#btn-iniciar-calculo:hover {
+  transform: scale(1.03);
+  background-color: #fff;
+  color: #0B1948;
+  transition: all 0.1s ease;
+}
+
 .desc-card {
     font-weight: 300;
     font-size: 1.5rem;
+}
+
+.calculadora-svg {
+  width: 2rem;
 }
 
 @media (max-width: 1024px) {
@@ -60,5 +74,6 @@
 
   .card-home {
     width: 70%;
+    height: 100%;
   }
 }

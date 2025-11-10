@@ -1,28 +1,97 @@
-<nav style="height: 5rem; width: 100dvw; border-bottom: 1px solid lightgray" class="flex justify-between items-center p-3">
-    <div class="flex items-center gap-3" style="cursor: pointer" (click)="irHome()">
-        <div style="width: 3rem; background-color: #4D7BFF; border-radius: 10px;" class="p-2" routerLink="/">
-            <img src="calculator-icon.svg" alt="">
-        </div>
-        <div>
-            <h2 class="font-bold titulo-nav">UCELO</h2>
-        </div>
+<nav
+  class="relative flex h-20 w-full items-center justify-between border-b border-gray-200 bg-white p-3"
+>
+  <div class="flex cursor-pointer items-center gap-3" (click)="irHome()">
+    <div class="w-12 rounded-lg bg-blue-600 p-2" routerLink="/">
+      <img src="calculator-icon.svg" alt="Ícone Calculadora" />
     </div>
-    <div class="flex" style="gap: 5rem;">
-        <div class="flex gap-3 cursor-pointer" (click)="irHome()">
-            <img src="home-icon.svg" alt="" style="width: 1.5rem;">
-            <p style="font-color: #000;" class="font-bold">Início</p>
-        </div>
-        <div class="flex gap-3 cursor-pointer" (click)="abrirPopup()">
-            <img src="calculator-icon2.svg" alt="" style="width: 1.5rem;">
-            <p style="font-color: #000;" class="font-bold">Calculadora</p>
-        </div>
-        <div class="flex gap-3 cursor-pointer" (click)="irSobre()">
-            <img src="info-icon.svg" alt="" style="width: 1.5rem;">
-            <p style="font-color: #000;" class="font-bold">Sobre</p>
-        </div>
+    <div>
+      <h2 class="font-bold titulo-nav">UCELO</h2>
     </div>
-    <button class="flex items-center p-3 gap-3" id="btn-gerar-relatorio">
-        <img src="file-icon.svg" alt="" style="width: 1.5rem;">
-        <p class="font-bold" style="color: #fff;">Gerar Relátorio</p>
+  </div>
+
+  <div class="hidden md:flex" style="gap: 5rem">
+    <div class="flex cursor-pointer items-center gap-3" (click)="irHome()">
+      <img src="home-icon.svg" alt="" style="width: 1.5rem" />
+      <p class="font-bold text-black">Início</p>
+    </div>
+
+    <div class="flex cursor-pointer items-center gap-3" (click)="abrirPopup()">
+      <img src="calculator-icon2.svg" alt="" style="width: 1.5rem" />
+      <p class="font-bold text-black">Calculadora</p>
+    </div>
+
+    <div class="flex cursor-pointer items-center gap-3" (click)="irSobre()">
+      <img src="info-icon.svg" alt="" style="width: 1.5rem" />
+      <p class="font-bold text-black">Sobre</p>
+    </div>
+  </div>
+
+  <button
+    class="hidden items-center gap-3 rounded-lg bg-blue-600 p-3 text-white md:flex"
+    id="btn-gerar-relatorio"
+  >
+    <img src="file-icon.svg" alt="" style="width: 1.5rem" />
+    <p class="font-bold">Gerar Relatório</p>
+  </button>
+
+  <div class="flex items-center md:hidden">
+    <button
+      (click)="toggleMobileMenu()"
+      class="rounded p-2 focus:outline-none focus:ring-2 focus:ring-gray-300"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
     </button>
+  </div>
+
+  <div
+    class="absolute left-0 top-20 z-50 w-full bg-white shadow-lg md:hidden"
+    [class.hidden]="!menuResponsivoAberto"
+  >
+    <div class="flex flex-col gap-4 p-4">
+      <div
+        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+        (click)="irHome()"
+      >
+        <img src="home-icon.svg" alt="" style="width: 1.5rem" />
+        <p class="font-bold text-black">Início</p>
+      </div>
+
+      <div
+        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+        (click)="abrirPopup()"
+      >
+        <img src="calculator-icon2.svg" alt="" style="width: 1.5rem" />
+        <p class="font-bold text-black">Calculadora</p>
+      </div>
+
+      <div
+        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+        (click)="irSobre()"
+      >
+        <img src="info-icon.svg" alt="" style="width: 1.5rem" />
+        <p class="font-bold text-black">Sobre</p>
+      </div>
+
+      <hr class="my-2" />
+
+      <button
+        class="flex w-full items-center justify-center gap-3 rounded-lg bg-blue-600 p-3 text-white"
+        id="btn-gerar-relatorio-mobile"
+      >
+        <img src="file-icon.svg" alt="" style="width: 1.5rem" />
+        <p class="font-bold">Gerar Relatório</p>
+      </button>
+    </div>
+  </div>
 </nav>

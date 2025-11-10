@@ -20,14 +20,32 @@ export class NavbarComponent {
     this.dialog.open(PopupEscolhaOperacaoComponent, {
       width: '500px'
     });
+    this.menuResponsivoAberto = false;
   }
 
   irHome() {
     this.router.navigate([''])
+    this.menuResponsivoAberto = false;
   }
 
   irSobre() {
     this.router.navigate(['/sobre'])
+    this.menuResponsivoAberto = false;
   }
 
+  irLogin() {
+    this.router.navigate(['/login'])
+    this.menuResponsivoAberto = false;
+  }
+
+  irCadastro() {
+    this.router.navigate(['/cadastro'])
+    this.menuResponsivoAberto = false;
+  }
+
+  menuResponsivoAberto = false; // Controla o estado do menu
+
+  toggleMobileMenu() {
+    this.menuResponsivoAberto = !this.menuResponsivoAberto;
+  }
 }
