@@ -10,7 +10,10 @@
     </div>
   </div>
 
-  <div class="hidden md:flex" style="gap: 5rem">
+  <div
+    class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:flex"
+    style="gap: 5rem"
+  >
     <div class="flex cursor-pointer items-center gap-3" (click)="irHome()">
       <img src="home-icon.svg" alt="" style="width: 1.5rem" />
       <p class="font-bold text-black">Início</p>
@@ -27,13 +30,27 @@
     </div>
   </div>
 
-  <button
-    class="hidden items-center gap-3 rounded-lg bg-blue-600 p-3 text-white md:flex"
-    id="btn-gerar-relatorio"
-  >
-    <img src="file-icon.svg" alt="" style="width: 1.5rem" />
-    <p class="font-bold">Gerar Relatório</p>
-  </button>
+  <div class="hidden items-center gap-6 md:flex">
+    <button
+      class="font-bold text-black hover:text-blue-600"
+      (click)="irLogin()"
+    >
+      Login
+    </button>
+    <button
+      class="font-bold text-black hover:text-blue-600"
+      (click)="irCadastro()"
+    >
+      Cadastre-se
+    </button>
+    <button
+      class="flex items-center gap-3 rounded-lg bg-blue-600 p-3 text-white"
+      id="btn-gerar-relatorio"
+    >
+      <img src="file-icon.svg" alt="" style="width: 1.5rem" />
+      <p class="font-bold">Gerar Relatório</p>
+    </button>
+  </div>
 
   <div class="flex items-center md:hidden">
     <button
@@ -81,6 +98,22 @@
       >
         <img src="info-icon.svg" alt="" style="width: 1.5rem" />
         <p class="font-bold text-black">Sobre</p>
+      </div>
+
+      <div
+        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+        (click)="irLogin()"
+      >
+        <div style="width: 1.5rem"></div>
+        <p class="font-bold text-black">Login</p>
+      </div>
+
+      <div
+        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+        (click)="irCadastro()"
+      >
+        <div style="width: 1.5rem"></div>
+        <p class="font-bold text-black">Cadastre-se</p>
       </div>
 
       <hr class="my-2" />

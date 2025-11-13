@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="flex justify-center container-cadastro mt-10">
+  <div class="flex lados mt-10">
+    <div class="container-esquerdo-cadastro pt-5 pb-10 ps-10 pr-10 flex items-center justify-center">
+      <div class="text-center">
+        <p class="titulo-cadastro">Seja Bem-Vindo!</p>
+        <p class="subtitulo-cadastro">Faça login e veja
+          <br>
+          seu histórico de cálculos.
+        </p>
+        <button class="btn-ir-cadastro" (click)="irCadastro()">
+          Cadastre-se
+        </button>
+      </div>
+    </div>
+    <div class="container-cadastro-direito pt-5 pb-10 ps-15 pr-15">
+      <div class="grid gap-5">
+        <p class="text-center titulo-container-direito">Login</p>
+        <div class="grid gap-1">
+          <label for="" class="titulo-input">Nome da empresa</label>
+          <input type="text" placeholder="Empresa 1" class="input-cadastro">
+        </div>
+        <div class="grid gap-1">
+          <label for="" class="titulo-input">E-Mail</label>
+          <input type="email" placeholder="empresa@gmail.com" class="input-cadastro">
+        </div>
+        <div class="grid gap-1">
+          <label for="" class="titulo-input">CNPJ</label>
+          <input type="text" placeholder="XX.XXX.XXX/YYYY-ZZ" class="input-cadastro">
+        </div>
+        <div class="grid gap-1">
+          <label for="" class="titulo-input">Telefone</label>
+          <input type="tel" placeholder="(43) 9999-9999" class="input-cadastro">
+        </div>
+        <div class="grid gap-1">
+          <label for="" class="titulo-input">Senha</label>
+          <input type="password" placeholder="*********" class="input-cadastro">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

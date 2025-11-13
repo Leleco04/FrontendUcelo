@@ -1,0 +1,51 @@
+.container-esquerdo-cadastro {
+  /* background-color: rgb(33, 167, 212); */
+  background-color: #2650DA;
+  color: #fff;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+.container-cadastro-direito {
+  background-color: #fff;
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
+
+.titulo-cadastro {
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+.subtitulo-cadastro {
+  font-size: 1.5rem;
+}
+
+.input-cadastro {
+  border: 1px solid lightgray;
+  padding: .5rem;
+  border-radius: .25rem;
+  outline-color: lightblue;
+  width: 20rem;
+}
+
+.titulo-container-direito {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.titulo-input {
+  font-weight: 500;
+}
+
+.btn-ir-cadastro {
+  font-size: 1.25rem;
+  font-weight: bold;
+  background-color: #145DFC;
+  padding: .5rem;
+  margin-top: 1rem;
+  border-radius: .25rem;
+  width: 10rem;
+  cursor: pointer;
+  border: 1px solid #fff;
+}
