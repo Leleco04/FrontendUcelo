@@ -12,28 +12,26 @@
         </button>
       </div>
     </div>
-    <div class="container-cadastro-direito pt-5 pb-10 ps-15 pr-15">
+    <div class="container-cadastro-direito pt-5 pb-10 ps-15 pr-15 grid place-items-center">
       <div class="grid gap-5">
         <p class="text-center titulo-container-direito">Login</p>
         <div class="grid gap-1">
-          <label for="" class="titulo-input">Nome da empresa</label>
-          <input type="text" placeholder="Empresa 1" class="input-cadastro">
-        </div>
-        <div class="grid gap-1">
-          <label for="" class="titulo-input">E-Mail</label>
-          <input type="email" placeholder="empresa@gmail.com" class="input-cadastro">
-        </div>
-        <div class="grid gap-1">
           <label for="" class="titulo-input">CNPJ</label>
-          <input type="text" placeholder="XX.XXX.XXX/YYYY-ZZ" class="input-cadastro">
-        </div>
-        <div class="grid gap-1">
-          <label for="" class="titulo-input">Telefone</label>
-          <input type="tel" placeholder="(43) 9999-9999" class="input-cadastro">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <img src="user-input-icon.svg" alt="" class="h-5 w-5">
+            </div>
+            <input type="text" placeholder="XX.XXX.XXX/YYYY-ZZ" class="input-login">
+          </div>
         </div>
         <div class="grid gap-1">
           <label for="" class="titulo-input">Senha</label>
-          <input type="password" placeholder="*********" class="input-cadastro">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <img src="locker-icon.svg" alt="" class="h-5 w-5">
+            </div>
+            <input type="password" placeholder="*********" class="input-login">
+          </div>
         </div>
       </div>
     </div>

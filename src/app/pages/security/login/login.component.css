@@ -21,11 +21,13 @@
   font-size: 1.5rem;
 }
 
-.input-cadastro {
+.input-login {
   border: 1px solid lightgray;
   padding: .5rem;
+  padding-left: 3rem;
   border-radius: .25rem;
-  outline-color: lightblue;
+  outline: none;
+  /* outline-color: lightblue; */
   width: 20rem;
 }
 
@@ -36,6 +38,10 @@
 
 .titulo-input {
   font-weight: 500;
+}
+
+.lados {
+  height: 65dvh;
 }
 
 .btn-ir-cadastro {
