@@ -55,3 +55,9 @@
   cursor: pointer;
   border: 1px solid #fff;
 }
+
+.btn-login {
+  background-color: #145DFC;
+  border-radius: .25rem;
+  color: #fff;
+}

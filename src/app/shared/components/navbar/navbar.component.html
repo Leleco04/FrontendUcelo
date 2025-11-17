@@ -32,23 +32,37 @@
 
   <div class="hidden items-center gap-6 md:flex">
     <button
-      class="font-bold text-black hover:text-blue-600"
+      *ngIf="!(authService.estaLogado$ | async)"
+      class="font-bold text-black hover:text-blue-600 btn-login"
       (click)="irLogin()"
     >
       Login
     </button>
     <button
-      class="font-bold text-black hover:text-blue-600"
+      *ngIf="!(authService.estaLogado$ | async)"
+      class="font-bold text-black hover:text-blue-600 btn-cadastro"
       (click)="irCadastro()"
     >
       Cadastre-se
     </button>
+
     <button
+      (click)="irHistorico()"
+      *ngIf="authService.estaLogado$ | async"
       class="flex items-center gap-3 rounded-lg bg-blue-600 p-3 text-white"
       id="btn-gerar-relatorio"
     >
       <img src="file-icon.svg" alt="" style="width: 1.5rem" />
       <p class="font-bold">Gerar Relatório</p>
+    </button>
+
+    <button
+      (click)="authService.logout()"
+      *ngIf="authService.estaLogado$ | async"
+      class="btn-logout flex gap-3 justify-center items-center"
+    >
+      <img src="logout.svg" alt="" style="width: 1.5rem" />
+      Logout
     </button>
   </div>
 
@@ -100,30 +114,43 @@
         <p class="font-bold text-black">Sobre</p>
       </div>
 
-      <div
-        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
-        (click)="irLogin()"
-      >
-        <div style="width: 1.5rem"></div>
-        <p class="font-bold text-black">Login</p>
-      </div>
+      <div *ngIf="!(authService.estaLogado$ | async)">
+        <div
+          class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+          (click)="irLogin()"
+        >
+          <div style="width: 1.5rem"></div>
+          <p class="font-bold text-black">Login</p>
+        </div>
 
-      <div
-        class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
-        (click)="irCadastro()"
-      >
-        <div style="width: 1.5rem"></div>
-        <p class="font-bold text-black">Cadastre-se</p>
+        <div
+          class="flex cursor-pointer items-center gap-3 rounded p-2 hover:bg-gray-100"
+          (click)="irCadastro()"
+        >
+          <div style="width: 1.5rem"></div>
+          <p class="font-bold text-black">Cadastre-se</p>
+        </div>
       </div>
-
-      <hr class="my-2" />
 
       <button
+        (click)="irHistorico()"
+        *ngIf="authService.estaLogado$ | async"
         class="flex w-full items-center justify-center gap-3 rounded-lg bg-blue-600 p-3 text-white"
         id="btn-gerar-relatorio-mobile"
       >
         <img src="file-icon.svg" alt="" style="width: 1.5rem" />
         <p class="font-bold">Gerar Relatório</p>
+      </button>
+
+      <hr class="my-2" />
+
+      <button
+        (click)="authService.logout()"
+        *ngIf="authService.estaLogado$ | async"
+        class="btn-logout flex gap-3 justify-center items-center"
+      >
+        <img src="logout.svg" alt="" style="width: 1.5rem" />
+        Logout
       </button>
     </div>
   </div>

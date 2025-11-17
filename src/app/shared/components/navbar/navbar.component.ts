@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PopupEscolhaOperacaoComponent } from '../popup-escolha-operacao/popup-escolha-operacao.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,13 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
+
 export class NavbarComponent {
 
   constructor(
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   abrirPopup(): void {
@@ -30,6 +33,11 @@ export class NavbarComponent {
 
   irSobre() {
     this.router.navigate(['/sobre'])
+    this.menuResponsivoAberto = false;
+  }
+
+  irHistorico() {
+    this.router.navigate(['/historico-calculos'])
     this.menuResponsivoAberto = false;
   }
 

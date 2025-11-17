@@ -26,12 +26,12 @@ export class CalculoVelocidadeComponent implements OnInit{
     private downloadArquivoService: DownloadArquivoService
   ) {
     this.calculoForm = this.fb.group({
-      oDoTambor: [null, [Validators.required, Validators.min(0)]],
+      diametroTambor: [null, [Validators.required, Validators.min(0)]],
       rotacaoDoTambor: [null, [Validators.required, Validators.min(0)]],
     });
   }
 
-  get oDoTambor() { return this.calculoForm.get('oDoTambor'); }
+  get diametroTambor() { return this.calculoForm.get('diametroTambor'); }
   get rotacaoDoTamgor() { return this.calculoForm.get('rotacaoDoTamgor'); }
 
   onSubmit(): void {

@@ -1,0 +1,48 @@
+.container-historico {
+  margin: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  min-height: 200px;
+}
+
+.btn-baixar-pdf:hover {
+  color: red;
+}
+
+.tabela-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+table {
+  width: 100%;
+}
+
+.coluna-resultado {
+  font-weight: bold;
+  color: #0056b3;
+  white-space: nowrap;
+}
+
+th.mat-header-cell {
+  white-space: nowrap;
+  padding-right: 16px;
+  background-color: #fafafa;
+}
+
+mat-paginator {
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  border-radius: 0 0 8px 8px;
+}
