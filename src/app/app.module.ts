@@ -19,6 +19,7 @@ import { HistoricoCalculosComponent } from './pages/calculos/historico-calculos/
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ComparacaoCanecasComponent } from './pages/calculos/comparacao-canecas/comparacao-canecas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CalculoVelocidadeComponent,
     LoginComponent,
     CadastroComponent,
-    HistoricoCalculosComponent
+    HistoricoCalculosComponent,
+    ComparacaoCanecasComponent
   ],
 
   imports: [

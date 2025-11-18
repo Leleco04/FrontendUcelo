@@ -26,6 +26,7 @@ export interface HistoricoCapacidade {
   capacidadeCalculada: number;
   unidade: string;
   densidadeProduto: number;
+  dataCalculo: string;
 }
 
 // Interface para o Histórico de Velocidade
@@ -36,6 +37,7 @@ export interface HistoricoVelocidade {
   rotacaoDoTambor: number;
   velocidadeCalculada: number;
   unidade: string;
+  dataCalculo: string;
 }
 
 @Injectable({

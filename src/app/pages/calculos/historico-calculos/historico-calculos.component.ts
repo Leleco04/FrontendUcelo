@@ -28,7 +28,8 @@ export class HistoricoCalculosComponent implements OnInit, AfterViewInit {
     'fatorEnchimento',
     'dimensoes', // Coluna combinada
     'capacidadeCalculada',
-    'acoes'
+    'dataCalculo',
+    'acoes',
   ];
   dataSourceCapacidade = new MatTableDataSource<HistoricoCapacidade>();
   totalCapacidade = 0;
@@ -43,7 +44,8 @@ export class HistoricoCalculosComponent implements OnInit, AfterViewInit {
     'diametroTambor',
     'rotacaoDoTambor',
     'velocidadeCalculada',
-    'acoes'
+    'dataCalculo',
+    'acoes',
   ];
   dataSourceVelocidade = new MatTableDataSource<HistoricoVelocidade>();
   totalVelocidade = 0;

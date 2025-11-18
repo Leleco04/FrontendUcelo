@@ -1,0 +1,250 @@
+<div class="grid grid-cols-3 gap-4 p-8 bg-blue-900 text-white">
+
+
+
+
+
+  <div>
+    <h3 class="font-bold text-lg mb-4">CANECA SELECIONADA</h3>
+
+    <label class="block mb-1 text-sm">Modelo Caneca</label>
+    <select (change)="onCatalogoSelect($event, formCanecaA)" class="w-full p-2 rounded bg-gray-700 border border-gray-600 mb-2">
+      <option [ngValue]="null">-- Preencher manualmente --</option>
+      <option *ngFor="let caneca of catalogoCanecas" [value]="caneca.id">
+        {{ caneca.nomeModelo }}
+      </option>
+    </select>
+
+    <!-- primeiro form (caneca 1) -->
+    <form [formGroup]="formCanecaA" class="space-y-2">
+      <div>
+        <label class="block mb-1 text-sm">Velocidade (m/s)</label>
+        <input type="number" formControlName="velocidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Passo (mm)</label>
+        <input type="number" formControlName="passo" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Capacidade (t/h)</label>
+        <input type="number" formControlName="capacidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Volume de borda (t/h)</label>
+        <input type="number" formControlName="volumeBorda" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Resistência a brasão</label>
+        <input type="number" formControlName="resistenciaBrasao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Volume da Caneca (l)</label>
+        <input type="number" formControlName="volumeCaneca" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Enchimento (%)</label>
+        <input type="number" formControlName="enchimento" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Resistência a Tração</label>
+        <input type="number" formControlName="resistenciaTracao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Deslocamento (mm)</label>
+        <input type="number" formControlName="deslocamento" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Profundidade (mm)</label>
+        <input type="number" formControlName="profundidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Largura (mm)</label>
+        <input type="number" formControlName="largura" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Projeção (mm)</label>
+        <input type="number" formControlName="projecao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Densidade (kg/m³)</label>
+        <input type="number" formControlName="densidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">N° de Fileiras</label>
+        <input type="number" formControlName="numeroDeFileiras" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Canecas/Metro</label>
+        <input type="number" formControlName="canecasMetro" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+  <div class="border-l border-r border-gray-600 px-4">
+    <h3 class="font-bold text-lg mb-7 text-center">COMPARATIVO DE CANECAS</h3>
+
+    <!-- lista do meio (diferencas) -->
+    <div class="text-center" style="height: 3rem;">
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.velocidade)" class="diferenca mb-1">
+          {{ diferencas.velocidade > 0 ? '+' : '' }}{{ diferencas.velocidade | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.passo)" class="diferenca mb-1">
+          {{ diferencas.passo > 0 ? '+' : '' }}{{ diferencas.passo | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.capacidade)" class="diferenca mb-1">
+          {{ diferencas.capacidade > 0 ? '+' : '' }}{{ diferencas.capacidade | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.volumeBorda)" class="diferenca mb-1">
+          {{ diferencas.volumeBorda > 0 ? '+' : '' }}{{ diferencas.volumeBorda | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.resistenciaBrasao)" class="diferenca mb-1">
+          {{ diferencas.resistenciaBrasao > 0 ? '+' : '' }}{{ diferencas.resistenciaBrasao | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.volumeCaneca)" class="diferenca mb-1">
+          {{ diferencas.volumeCaneca > 0 ? '+' : '' }}{{ diferencas.volumeCaneca | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.enchimento)" class="diferenca mb-1">
+          {{ diferencas.enchimento > 0 ? '+' : '' }}{{ diferencas.enchimento | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.resistenciaTracao)" class="diferenca mb-1">
+          {{ diferencas.resistenciaTracao > 0 ? '+' : '' }}{{ diferencas.resistenciaTracao | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.deslocamento)" class="diferenca mb-1">
+          {{ diferencas.deslocamento > 0 ? '+' : '' }}{{ diferencas.deslocamento | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.profundidade)" class="diferenca mb-1">
+          {{ diferencas.profundidade > 0 ? '+' : '' }}{{ diferencas.profundidade | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.largura)" class="diferenca mb-1">
+          {{ diferencas.largura > 0 ? '+' : '' }}{{ diferencas.largura | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.projecao)" class="diferenca mb-1">
+          {{ diferencas.projecao > 0 ? '+' : '' }}{{ diferencas.projecao | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.densidade)" class="diferenca mb-1">
+          {{ diferencas.densidade > 0 ? '+' : '' }}{{ diferencas.densidade | number:'1.2-2' }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.numeroDeFileiras)" class="diferenca mb-1">
+          {{ diferencas.numeroDeFileiras > 0 ? '+' : '' }}{{ diferencas.numeroDeFileiras }}
+        </span>
+      </div>
+      <div class="h-[60px] flex items-center justify-center">
+        <span [ngClass]="getDiferencaClass(diferencas.canecasMetro)" class="diferenca mb-1">
+          {{ diferencas.canecasMetro > 0 ? '+' : '' }}{{ diferencas.canecasMetro }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div>
+    <h3 class="font-bold text-lg mb-4">CANECA PARA COMPARAÇÃO</h3>
+
+    <label class="block mb-1 text-sm">Modelo Caneca</label>
+    <select (change)="onCatalogoSelect($event, formCanecaB)" class="w-full p-2 rounded bg-gray-700 border border-gray-600 mb-2">
+      <option [ngValue]="null">-- Preencher manualmente --</option>
+      <option *ngFor="let caneca of catalogoCanecas" [value]="caneca.id">
+        {{ caneca.nomeModelo }}
+      </option>
+    </select>
+
+    <!-- segundo form (caneca 2) -->
+    <form [formGroup]="formCanecaB" class="space-y-2">
+      <div>
+        <label class="block mb-1 text-sm">Velocidade (m/s)</label>
+        <input type="number" formControlName="velocidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Passo (mm)</label>
+        <input type="number" formControlName="passo" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Capacidade (t/h)</label>
+        <input type="number" formControlName="capacidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Volume de borda (t/h)</label>
+        <input type="number" formControlName="volumeBorda" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Resistência a brasão</label>
+        <input type="number" formControlName="resistenciaBrasao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Volume da Caneca (l)</label>
+        <input type="number" formControlName="volumeCaneca" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Enchimento (%)</label>
+        <input type="number" formControlName="enchimento" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Resistência a Tração</label>
+        <input type="number" formControlName="resistenciaTracao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Deslocamento (mm)</label>
+        <input type="number" formControlName="deslocamento" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Profundidade (mm)</label>
+        <input type="number" formControlName="profundidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Largura (mm)</label>
+        <input type="number" formControlName="largura" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Projeção (mm)</label>
+        <input type="number" formControlName="projecao" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Densidade (kg/m³)</label>
+        <input type="number" formControlName="densidade" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">N° de Fileiras</label>
+        <input type="number" formControlName="numeroDeFileiras" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Canecas/Metro</label>
+        <input type="number" formControlName="canecasMetro" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+      </div>
+    </form>
+  </div>
+
+</div>

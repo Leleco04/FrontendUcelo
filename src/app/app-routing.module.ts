@@ -8,6 +8,7 @@ import { CadastroComponent } from './pages/security/cadastro/cadastro.component'
 import { LoginComponent } from './pages/security/login/login.component';
 import { AuthGuard } from './services/auth/auth.guard';
 import { HistoricoCalculosComponent } from './pages/calculos/historico-calculos/historico-calculos.component';
+import { ComparacaoCanecasComponent } from './pages/calculos/comparacao-canecas/comparacao-canecas.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent,},
@@ -30,6 +31,11 @@ const routes: Routes = [
       component: HistoricoCalculosComponent,
       canActivate: [AuthGuard]
     },
+    {
+      path: 'calculadora-comparacao-canecas',
+      component: ComparacaoCanecasComponent,
+      canActivate: [AuthGuard]
+    }
 ];
 
 @NgModule({
