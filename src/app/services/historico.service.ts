@@ -74,7 +74,7 @@ export class HistoricoService {
 
   // metodo para gerar o relatorio de calculo de capacidade
   gerarRelatorioCapacidade(calculo: HistoricoCapacidade): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/capacidade/relatorio`, calculo, {
+    return this.http.get(`${this.apiUrl}/capacidade/relatorio/${calculo.id}`, {
       // diz para tratar o tipo de resposta como arquivo "blob"
       responseType: 'blob'
     });

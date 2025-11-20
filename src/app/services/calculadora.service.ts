@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 // interface para a resposta do calculo de capacidade
 export interface CalculoCapacidadeResponse {
+  id: number;
   capacidadeCalculada: number;
   unidade: string;
 }
@@ -30,10 +31,9 @@ export class CalculadoraService {
   }
 
   // metodo para gerar o relatorio do calculo de capacidade
-  gerarRelatorioCapacidade(dados: any): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/capacidade/relatorio`, dados, {
-      // tipo de resposta "blob"
-        responseType: 'blob'
+  gerarRelatorioCapacidade(idCalculo: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/capacidade/relatorio/${idCalculo}`, {
+      responseType: 'blob'
     });
   }
 

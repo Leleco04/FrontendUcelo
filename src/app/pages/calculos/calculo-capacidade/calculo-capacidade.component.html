@@ -57,7 +57,7 @@
     <div class="flex justify-center">
         <div *ngIf="resultado" class="container-resultado mt-5 grid items-center gap-3">
             Resultado do cálculo: {{resultado.capacidadeCalculada | number:'1.2-2'}} {{resultado.unidade}}
-            <button class="flex btn-exp-pdf" (click)="gerarRelatorio()">
+            <button type="button" class="flex btn-exp-pdf" (click)="gerarRelatorio()">
               Exportar como PDF
               <img src="pdf-icon.svg" alt="imagem-pdf" class="pdf-svg">
             </button>

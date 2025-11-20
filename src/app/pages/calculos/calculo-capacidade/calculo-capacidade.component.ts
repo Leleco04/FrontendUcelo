@@ -15,6 +15,7 @@ export class CalculoCapacidadeComponent implements OnInit {
   calculoForm: FormGroup;
   resultado: CalculoCapacidadeResponse | null = null;
   erro: string | null = null
+  idCalculoSalvo: number = 0
   estaCarregandoRelatorio: boolean = false;
 
   constructor(
@@ -72,7 +73,7 @@ export class CalculoCapacidadeComponent implements OnInit {
       next: (resposta) => {
         // sucesso Mostra o resultado
         this.resultado = resposta;
-        console.log(resposta)
+        this.idCalculoSalvo = resposta.id
       },
       error: (err) => {
         // erro Mostra a falha
@@ -129,12 +130,12 @@ export class CalculoCapacidadeComponent implements OnInit {
     this.estaCarregandoRelatorio = true;
     const dados = this.calculoForm.value;
 
-    this.calculadoraService.gerarRelatorioCapacidade(dados).subscribe({
+    this.calculadoraService.gerarRelatorioCapacidade(this.idCalculoSalvo).subscribe({
       next: (pdfBlob) => {
         this.estaCarregandoRelatorio = false;
 
         // chama o servico de download
-        this.downloadArquivoService.baixarArquivo(pdfBlob, 'relatorio-capacidade.pdf');
+        this.downloadArquivoService.baixarArquivo(pdfBlob, 'relatorio-capacidade-' + this.idCalculoSalvo + '.pdf');
       },
       error: (err) => {
         this.estaCarregandoRelatorio = false;
