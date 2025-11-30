@@ -11,8 +11,13 @@ export interface CalculoCapacidadeResponse {
 
 // interface para a resposta do calculo de velocidade
 export interface CalculoVelocidadeResponse {
+  id: number
   velocidadeCalculada: number;
   unidade: string;
+}
+
+export interface CalculoComparacaoResponse {
+  idHistoricoComparacao: number;
 }
 
 @Injectable({
@@ -37,14 +42,26 @@ export class CalculadoraService {
     });
   }
 
+  salvarComparacao(dadosComparacao: any): Observable<CalculoComparacaoResponse> {
+    console.log(dadosComparacao)
+    return this.http.post<CalculoComparacaoResponse>(`${this.apiUrl}/comparacao`, dadosComparacao);
+  }
+
+  // metodo para gerar o relatorio do calculo de comparacao
+  gerarRelatorioComparacao(idCalculo: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/comparacao/relatorio/${idCalculo}`, {
+      responseType: 'blob'
+    });
+  }
+
   // metodo para calcular a velocidade
   calcularVelocidade(dadosForm: any): Observable<CalculoVelocidadeResponse> {
     return this.http.post<CalculoVelocidadeResponse>(`${this.apiUrl}/velocidade`, dadosForm);
   }
 
   // metodo para gerar o relatorio do calculo de velocidade
-  gerarRelatorioVelocidade(dados: any): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/velocidade/relatorio`, dados, {
+  gerarRelatorioVelocidade(idCalculo: number): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/velocidade/relatorio/${idCalculo}`, {
       // tipo de resposta "blob"
         responseType: 'blob'
     });

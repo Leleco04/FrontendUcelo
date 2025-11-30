@@ -82,7 +82,7 @@ export class HistoricoService {
 
   // metodo para gerar o relatorio de calculo de velocidade
   gerarRelatorioVelocidade(calculo: HistoricoVelocidade): Observable<Blob> {
-    return this.http.post(`${this.apiUrl}/velocidade/relatorio`, calculo, {
+    return this.http.get(`${this.apiUrl}/velocidade/relatorio/${calculo.id}`, {
       // diz para tratar o tipo de resposta como arquivo "blob"
       responseType: 'blob'
     });

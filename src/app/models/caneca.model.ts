@@ -17,4 +17,6 @@ export interface Caneca {
   numeroDeFileiras: number;
   canecasMetro: number;
   passo: number;
+  precoMetro: number;
+  precoUnidade: number;
 }

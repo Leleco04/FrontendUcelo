@@ -1,83 +1,65 @@
-<div class="flex justify-center container-cadastro mt-10">
-  <div class="flex lados mt-10">
-    <div
-      class="container-esquerdo-cadastro pt-5 pb-10 ps-10 pr-10 flex items-center justify-center"
-    >
+<div class="container-cadastro">
+
+  <div class="flex lados shadow-lg rounded-lg">
+
+    <div class="container-esquerdo-cadastro pt-5 pb-10 ps-10 pr-10 flex items-center justify-center">
       <div class="text-center">
         <p class="titulo-cadastro">Seja Bem-Vindo!</p>
-        <p class="subtitulo-cadastro">
-          Cadastre-se em nosso site para manter
+        <p class="subtitulo-cadastro mt-4 mb-4"> Cadastre-se em nosso site para manter
           <br />
           um histórico de seus cálculos e
           <br />
           gerar relatórios personalizados.
         </p>
-        <button class="btn-ir-login" (click)="irLogin()">Login</button>
+        <button class="btn-ir-login transition hover:bg-blue-800" (click)="irLogin()">Login</button>
       </div>
     </div>
+
     <div class="container-cadastro-direito pt-5 pb-10 ps-15 pr-15">
       <div class="grid gap-5">
-        <p class="text-center titulo-container-direito">Cadastre-se</p>
-        <form (ngSubmit)="onSubmit()" class="grid gap-3">
+        <p class="text-center titulo-container-direito text-blue-900">Cadastre-se</p> <form (ngSubmit)="onSubmit()" class="grid gap-3">
           <div class="grid gap-1">
-            <label for="" class="titulo-input">Nome da empresa</label>
-            <input
-              type="text"
-              placeholder="Empresa 1"
-              class="input-cadastro"
-              [(ngModel)]="dadosCadastro.nomeEmpresa"
-              name="nomeEmpresa"
-            />
+            <label class="titulo-input">Nome da empresa</label>
+            <input type="text" placeholder="Empresa 1" class="input-cadastro"
+              [(ngModel)]="dadosCadastro.nomeEmpresa" name="nomeEmpresa"/>
           </div>
+
           <div class="grid gap-1">
-            <label for="" class="titulo-input">E-Mail</label>
-            <input
-              type="email"
-              placeholder="empresa@gmail.com"
-              class="input-cadastro"
-              [(ngModel)]="dadosCadastro.email"
-              name="email"
-            />
+            <label class="titulo-input">E-Mail</label>
+            <input type="email" placeholder="empresa@gmail.com" class="input-cadastro"
+              [(ngModel)]="dadosCadastro.email" name="email" />
           </div>
+
           <div class="grid gap-1">
-            <label for="" class="titulo-input">CNPJ</label>
-            <input
-              type="text"
-              placeholder="XX.XXX.XXX/YYYY-ZZ"
-              class="input-cadastro"
-              [(ngModel)]="dadosCadastro.cnpj"
-              name="cnpj"
-            />
+            <label class="titulo-input">CNPJ</label>
+            <input type="text" placeholder="XX.XXX.XXX/YYYY-ZZ" class="input-cadastro"
+              [(ngModel)]="dadosCadastro.cnpj" name="cnpj"
+              mask="00.000.000/0000-00"
+              [dropSpecialCharacters]="true"
+              />
           </div>
+
           <div class="grid gap-1">
-            <label for="" class="titulo-input">Telefone</label>
-            <input
-              type="tel"
-              placeholder="(43) 9999-9999"
-              class="input-cadastro"
-              name="telefone"
-            />
+            <label class="titulo-input">Telefone</label>
+            <input type="tel" placeholder="(43) 9999-9999" class="input-cadastro"
+              name="telefone" mask="(00) 0000-0000 || (00) 0 0000-0000"/>
           </div>
+
           <div class="grid gap-1">
-            <label for="" class="titulo-input">Senha</label>
-            <input
-              type="password"
-              placeholder="*********"
-              class="input-cadastro"
-              name="senha"
-              [(ngModel)]="dadosCadastro.senha"
-            />
+            <label class="titulo-input">Senha</label>
+            <input type="password" placeholder="*********" class="input-cadastro"
+              name="senha" [(ngModel)]="dadosCadastro.senha" />
           </div>
+
           <div class="flex mt-5 justify-center">
-            <button
-              class="font-bold btn-concluir-cadastro p-5 cursor-pointer w-55"
-              type="submit"
-            >
+            <button class="font-bold btn-concluir-cadastro p-3 cursor-pointer w-full hover:opacity-90 transition"
+              type="submit">
               Cadastrar
             </button>
           </div>
         </form>
       </div>
     </div>
+
   </div>
 </div>

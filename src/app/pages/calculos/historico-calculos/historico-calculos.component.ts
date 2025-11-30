@@ -124,7 +124,7 @@ export class HistoricoCalculosComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         (blob) => {
-          const filename = `relatorio-capacidade-${item.id}.pdf`;
+          const filename = this.downloadArquivoService.gerarNomeRelatorioCapacidade();
           this.downloadArquivoService.baixarArquivo(blob, filename);
         },
         (erro) => {
@@ -143,7 +143,7 @@ export class HistoricoCalculosComponent implements OnInit, AfterViewInit {
       )
       .subscribe(
         (blob) => {
-          const filename = `relatorio-velocidade-${item.id}.pdf`;
+          const filename = this.downloadArquivoService.gerarNomeRelatorioVelocidade();
           this.downloadArquivoService.baixarArquivo(blob, filename);
         },
         (erro) => {

@@ -1,33 +1,52 @@
 <form [formGroup]="calculoForm" (ngSubmit)="onSubmit()">
-    <h2 class="text-center text-white mt-10 font-semibold" style="font-size: 2.5rem;">Calculadora de Velocidade</h2>
+  <div>
+    <h2
+      class="text-center text-white mt-10 font-semibold"
+      style="font-size: 2.5rem"
+    >
+      Calculadora de Velocidade
+    </h2>
     <div class="flex justify-center">
-        <div class="calculo-container gap-5 p-5 justify-center">
-            <div class="container-input gap-3">
-                <div class="grid">
-                    <label for="">Diâmetro do Tambor</label>
-                    <input class="input-calculo" type="number" formControlName="diametroTambor">
-                </div>
-                <div class="grid">
-                    <label for="">Rotação do Tambor</label>
-                    <input class="input-calculo" type="number" formControlName="rotacaoDoTambor">
-                </div>
-            </div>
-            <div class="flex justify-center">
-                <div class="grid">
-                    <button class="btn-calcular" type="submit">Calcular</button>
-                </div>
-            </div>
+      <div class="calculo-container gap-5 p-5 justify-center">
+        <div class="container-input gap-3">
+          <div class="grid">
+            <label for="">Diâmetro do Tambor</label>
+            <input
+              class="input-calculo"
+              type="number"
+              formControlName="diametroTambor"
+            />
+          </div>
+          <div class="grid">
+            <label for="">Rotação do Tambor</label>
+            <input
+              class="input-calculo"
+              type="number"
+              formControlName="rotacaoDoTambor"
+            />
+          </div>
         </div>
-    </div>
-
-    <div class="flex justify-center">
-        <div *ngIf="resultado" class="container-resultado mt-5 grid items-center gap-3">
-            Resultado do cálculo: {{resultado.velocidadeCalculada | number:'1.2-2'}} {{resultado.unidade}}
-            <button class="flex btn-exp-pdf" (click)="gerarRelatorio()">
-              Exportar como PDF
-              <img src="pdf-icon.svg" alt="imagem-pdf" class="pdf-svg">
-            </button>
+        <div class="flex justify-center">
+          <div class="grid">
+            <button class="btn-calcular" type="submit">Calcular</button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
+  <div class="flex justify-center">
+    <div
+      *ngIf="resultado"
+      class="container-resultado grid items-center gap-3"
+    >
+      Resultado do cálculo:
+      {{ resultado.velocidadeCalculada | number : "1.2-2" }}
+      {{ resultado.unidade }}
+      <button type="button" class="flex btn-exp-pdf" (click)="gerarRelatorio()">
+        Exportar como PDF
+        <img src="pdf-icon.svg" alt="imagem-pdf" class="pdf-svg" />
+      </button>
+    </div>
+  </div>
 </form>

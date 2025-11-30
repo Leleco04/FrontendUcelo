@@ -1,4 +1,4 @@
-<div class="flex justify-center container-cadastro mt-10">
+<div class="flex justify-center container-login mt-10">
   <div class="flex lados mt-10">
     <div
       class="container-esquerdo-cadastro pt-5 pb-10 ps-10 pr-10 flex items-center justify-center"
@@ -35,6 +35,8 @@
                 class="input-login"
                 name="cnpj"
                 [(ngModel)]="credenciais.cnpj"
+                mask="00.000.000/0000-00"
+                [dropSpecialCharacters]="true"
               />
             </div>
           </div>

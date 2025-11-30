@@ -28,4 +28,28 @@ export class DownloadArquivoService {
     // tira a url
     window.URL.revokeObjectURL(url);
   }
+
+  // gera o nome para o relatorio de capacidade
+  // concatena um timestamp now para evitar duplicidade de nome
+  gerarNomeRelatorioCapacidade(): string {
+    const data = new Date();
+    const dataLocal = new Date(data.getTime() - (data.getTimezoneOffset() * 60000));
+    return 'relatorio-capacidade-' + dataLocal.toISOString().slice(0, 19) + '.pdf'
+  }
+
+  // gera o nome para o relatorio de velocidade
+  // concatena um timestamp now para evitar duplicidade de nome
+  gerarNomeRelatorioVelocidade(): string {
+    const data = new Date();
+    const dataLocal = new Date(data.getTime() - (data.getTimezoneOffset() * 60000));
+    return 'relatorio-velocidade-' + dataLocal.toISOString().slice(0, 19) + '.pdf'
+  }
+
+  // gera o nome para o relatorio de comparacao
+  // concatena um timestamp now para evitar duplicidade de nome
+  gerarNomeRelatorioComparacao(): string {
+    const data = new Date();
+    const dataLocal = new Date(data.getTime() - (data.getTimezoneOffset() * 60000));
+    return 'relatorio-comparacao-' + dataLocal.toISOString().slice(0, 19) + '.pdf'
+  }
 }

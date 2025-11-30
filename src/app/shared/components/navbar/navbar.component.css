@@ -30,6 +30,13 @@ nav {
   border-radius: .25rem;
 }
 
+.btn-login:hover,
+.btn-cadastro:hover {
+  background-color: #fff;
+  border: 1px solid #4D7BFF;
+  color: #4D7BFF;
+}
+
 .btn-logout {
   background-color: red;
   color: #fff;

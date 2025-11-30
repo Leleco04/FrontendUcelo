@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, provideEnvironmentInitializer } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { HistoricoCalculosComponent } from './pages/calculos/historico-calculos/
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ComparacaoCanecasComponent } from './pages/calculos/comparacao-canecas/comparacao-canecas.component';
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ComparacaoCanecasComponent } from './pages/calculos/comparacao-canecas/
     LoginComponent,
     CadastroComponent,
     HistoricoCalculosComponent,
-    ComparacaoCanecasComponent
+    ComparacaoCanecasComponent,
   ],
 
   imports: [
@@ -46,11 +47,14 @@ import { ComparacaoCanecasComponent } from './pages/calculos/comparacao-canecas/
     MatTabsModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideNgxMask(),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

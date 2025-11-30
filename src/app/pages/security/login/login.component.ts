@@ -43,12 +43,14 @@ export class LoginComponent {
                 icon: 'error',
                 title: 'ERRO!',
                 text: 'Por favor, preencha todos os campos corretamente.',
+                heightAuto: false
               });
             } else {
               Swal.fire({
                 icon: 'error',
                 title: 'ERRO!',
                 text: 'CNPJ ou senha incorretos.',
+                heightAuto: false
               });
             }
       }

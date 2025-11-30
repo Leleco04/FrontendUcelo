@@ -12,11 +12,11 @@ import { CalculadoraService, CalculoVelocidadeResponse } from '../../../services
 })
 
 export class CalculoVelocidadeComponent implements OnInit{
-
   calculoForm: FormGroup;
   resultado: CalculoVelocidadeResponse | null = null;
   erro: string | null = null
   estaCarregandoRelatorio: boolean = false;
+  idCalculoSalvo: number = 0
 
   ngOnInit(): void { }
 
@@ -58,6 +58,7 @@ export class CalculoVelocidadeComponent implements OnInit{
           next: (resposta) => {
             // sucesso
             this.resultado = resposta;
+            this.idCalculoSalvo = resposta.id
             console.log(resposta)
           },
           error: (err) => {
@@ -111,12 +112,12 @@ export class CalculoVelocidadeComponent implements OnInit{
       this.estaCarregandoRelatorio = true;
       const dados = this.calculoForm.value;
 
-      this.calculadoraService.gerarRelatorioVelocidade(dados).subscribe({
+      this.calculadoraService.gerarRelatorioVelocidade(this.idCalculoSalvo).subscribe({
         next: (pdfBlob) => {
           this.estaCarregandoRelatorio = false;
 
           // chama o servico de download
-          this.downloadArquivoService.baixarArquivo(pdfBlob, 'relatorio-velocidade.pdf');
+          this.downloadArquivoService.baixarArquivo(pdfBlob, this.downloadArquivoService.gerarNomeRelatorioVelocidade());
         },
         error: (err) => {
           this.estaCarregandoRelatorio = false;
@@ -124,6 +125,6 @@ export class CalculoVelocidadeComponent implements OnInit{
           console.error(err);
         }
       });
-    }
+  }
 
 }

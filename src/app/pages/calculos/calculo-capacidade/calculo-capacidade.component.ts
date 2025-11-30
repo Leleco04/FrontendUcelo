@@ -135,7 +135,7 @@ export class CalculoCapacidadeComponent implements OnInit {
         this.estaCarregandoRelatorio = false;
 
         // chama o servico de download
-        this.downloadArquivoService.baixarArquivo(pdfBlob, 'relatorio-capacidade-' + this.idCalculoSalvo + '.pdf');
+        this.downloadArquivoService.baixarArquivo(pdfBlob, this.downloadArquivoService.gerarNomeRelatorioCapacidade());
       },
       error: (err) => {
         this.estaCarregandoRelatorio = false;
@@ -144,5 +144,4 @@ export class CalculoCapacidadeComponent implements OnInit {
       }
     });
   }
-
 }

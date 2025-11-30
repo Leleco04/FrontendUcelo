@@ -31,29 +31,48 @@ export class CadastroComponent {
   }
 
   onSubmit(): void {
-    this.authService.registrar(this.dadosCadastro).subscribe(
-      () => {
-        // Sucesso! Redireciona para o login
-        this.router.navigate(['/login']);
-      },
-      (err) => {
-        // Exibe o erro
-        if(
-          this.dadosCadastro.cnpj.length == 0 ||
-          this.dadosCadastro.email.length == 0 ||
-          this.dadosCadastro.senha.length == 0 ||
-          this.dadosCadastro.nomeEmpresa.length == 0
-        ) {
-          Swal.fire({
-                    icon: 'error',
-                    title: 'ERRO!',
-                    text: 'Por favor, preencha todos os campos corretamente.',
-        });
-        }
 
-        return;
+    if (this.isFormularioInvalido()) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Campos Incompletos!',
+        text: 'Por favor, preencha todos os campos antes de continuar.',
+        confirmButtonColor: '#145DFC'
+      });
+      return; // Para a execução aqui se tiver erro
+    }
+
+    this.authService.registrar(this.dadosCadastro).subscribe({
+      next: () => {
+        // Sucesso!
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso!',
+          text: 'Cadastro realizado com sucesso!',
+          timer: 500,
+          showConfirmButton: false
+        }).then(() => {
+          this.router.navigate(['/login']);
+        });
+      },
+      error: (err) => {
+        // Erro vindo do Backend (Ex: Email duplicado, erro de servidor)
+        console.error(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Erro no Cadastro',
+          text: 'Ocorreu um erro ao tentar cadastrar. Verifique os dados ou tente novamente mais tarde.',
+          confirmButtonColor: '#d33'
+        });
       }
-    );
+    });
   }
+
+  isFormularioInvalido(): boolean {
+      return !this.dadosCadastro.nomeEmpresa ||
+              !this.dadosCadastro.email ||
+              !this.dadosCadastro.cnpj ||
+              !this.dadosCadastro.senha;
+    }
 
 }

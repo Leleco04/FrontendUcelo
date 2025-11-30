@@ -17,6 +17,10 @@
   font-size: 3rem;
 }
 
+.container-login {
+  height: calc(100% - 80px);
+}
+
 .subtitulo-cadastro {
   font-size: 1.5rem;
 }

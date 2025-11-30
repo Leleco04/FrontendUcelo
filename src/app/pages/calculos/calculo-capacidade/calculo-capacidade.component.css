@@ -6,6 +6,10 @@
     width: 30%;
 }
 
+form {
+  height: calc(100% - 80px);
+}
+
 .input-calculo {
     border: 1px solid lightgray;
     border-radius: .25rem;
@@ -77,5 +81,9 @@
 
     .container-input {
         display: grid;
+    }
+
+    form {
+      height: 70rem;
     }
 }

@@ -13,6 +13,12 @@
     width: 15rem;
 }
 
+form {
+  height: calc(100% - 80px);
+  display: grid;
+  align-items: center;
+}
+
 .input-calculo:focus {
     outline: 1px solid lightblue;
 }
